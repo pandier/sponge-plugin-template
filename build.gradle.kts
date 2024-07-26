@@ -10,16 +10,6 @@ repositories {
     mavenCentral()
 }
 
-configurations.spongeRuntime {
-    resolutionStrategy {
-        eachDependency {
-            if (target.name == "spongevanilla") {
-                useVersion("1.20.6-11.0.0")
-            }
-        }
-    }
-}
-
 sponge {
     apiVersion("11.0.0")
     license("MIT")
@@ -40,5 +30,15 @@ sponge {
 java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+configurations.spongeRuntime {
+    resolutionStrategy {
+        eachDependency {
+            if (target.name == "spongevanilla") {
+                useVersion("1.20.6-11.0.0")
+            }
+        }
     }
 }
